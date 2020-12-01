@@ -67,7 +67,7 @@ The best performing random forest and GAM on the validation sets are compared an
 <img align="center" src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/metrics.png' width="750" >
 </p>
 
-### Test
+### Testing
 
 Our next step was to assess whether the best performing GAM was predicting reasonable and helpful results. It was evaluated on the testing years of 2014, 2018 and 2019, and metrics were averaged over these three years. These results are shown in the table below.
 

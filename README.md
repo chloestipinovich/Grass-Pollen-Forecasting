@@ -11,7 +11,7 @@ Reliable and accessible pollen forecasts can help allergy sufferers, enabling th
 
 In order to predict pollen concentrations one to seven days ahead, we used a recursive forecasting strategy. This means that we built models to predict one day ahead pollen concentrations and then use that prediction for forecasting the next day’s pollen count.  In other words, we have one model that we reuse as we predict further and further out, iteratively replacing observed pollen counts with predicted ones and observed values of weather variables with forecasted ones as seen in the figure below.
 
-<img src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/recursiveChainForecasting.png' width="550" align='center'>
+<img align='center' src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/recursiveChainForecasting.png' width="700" >
 
 
 ### The Need for Categories
@@ -32,7 +32,7 @@ Our models predict pollen counts over the next seven days. However, we believe i
 
 Given temporal dependence between observations in time series data, adaptations of the usual randomised holdout procedures are generally used to test and validate time series models [(Cerqueiraetal, 2020)](https://www.researchgate.net/publication/344667575_Evaluating_time_series_forecasting_models_an_empirical_study_on_performance_estimation_methods). We used a procedure involving a rolling or sliding window for the test, train and validation splits [(Tashman, 2000)](https://www.researchgate.net/publication/247087596_Out-of_sample_tests_of_forecasting_accuracy_a_tutorial_and_review). The method we used is illustrated in the diagram below and has been adapted from a diagram by [(Cochrane, 2018)](https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9).
 
-<img src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/traintestSplitting.png' width="650" align="center">
+<img align="center" src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/traintestSplitting.png' width="700">
 
 ## Shiny App and Semi-Automated Workflow
 
@@ -44,7 +44,7 @@ Our semi-automated workflow enables us to use current data to generate a 7-day a
 3. the .csv file is then uploaded to GitHub, and 
 4. a Shiny app uses the GitHub file to make the forecast available online. These steps are shown using a flowchart:
 
-<img src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/workflow.png' width="650" align="center">
+<img align="center" src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/workflow.png'>
 
 
 
@@ -54,7 +54,7 @@ Our semi-automated workflow enables us to use current data to generate a 7-day a
 ### Validation
 The best performing random forest and GAM on the validation sets are compared and respresented in the figure below. The GAM model outperforms the random forest across all four metrics and in all periods. The GAM achieves a greater classification accuracy, so it predicts the correct category more often than the random forest does. The GAM has a lower MSE and lower MAE and so when the categorical prediction is incorrect, the GAM predicts categories closer to the true category more often than the random forest. The GAM also has a lower Brier score and so is better skilled in its probabilistic forecasting ability in terms of predicting whether or not a category occurred. Importantly, the GAM significantly outperforms the random forest In Season for each of the MSE, MAE and Brier score.
 
-<img src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/metrics.png' width="650" align="center">
+<img align="center" src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/metrics.png' width="750" >
 
 
 ### Test

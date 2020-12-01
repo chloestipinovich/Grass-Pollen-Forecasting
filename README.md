@@ -20,6 +20,7 @@ In order to predict pollen concentrations one to seven days ahead, we used a rec
 
 Our models predict pollen counts over the next seven days. However, we believe it is more informative to ultimately predict categories rather than counts, since the end user of our forecast is unlikely to be able to interpret a numeric count prediction. Consequently, instead of reporting the numeric count prediction for each day we converted the daily posterior predictive distributions of pollen counts into probability distributions over five categories, from Very Low to Very High. The categories we used are tabulated below.
 
+<p align="center">
 
 | Category | Bin |
 | :--- | :---: |
@@ -28,13 +29,16 @@ Our models predict pollen counts over the next seven days. However, we believe i
 | Moderate | 3 < count < 8|
 | High | 8 < count < 14.8 | 
 | Very High | 14.8 < count |
-
+</p>
 
 ### Testing and Validation
 
 Given temporal dependence between observations in time series data, adaptations of the usual randomised holdout procedures are generally used to test and validate time series models [(Cerqueiraetal, 2020)](https://www.researchgate.net/publication/344667575_Evaluating_time_series_forecasting_models_an_empirical_study_on_performance_estimation_methods). We used a procedure involving a rolling or sliding window for the test, train and validation splits [(Tashman, 2000)](https://www.researchgate.net/publication/247087596_Out-of_sample_tests_of_forecasting_accuracy_a_tutorial_and_review). The method we used is illustrated in the diagram below and has been adapted from a diagram by [(Cochrane, 2018)](https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9).
 
-<img align="center" src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/traintestSplitting.png' width="700">
+<p align="center">
+
+<img src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/traintestSplitting.png' width="700">
+</p>
 
 ## Shiny App and Semi-Automated Workflow
 
@@ -46,8 +50,10 @@ Our semi-automated workflow enables us to use current data to generate a 7-day a
 3. the .csv file is then uploaded to GitHub, and 
 4. a Shiny app uses the GitHub file to make the forecast available online. These steps are shown using a flowchart:
 
-<img align="center" src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/workflow.png'>
+<p align="center">
 
+<img align="center" src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/workflow.png'>
+</p>
 
 
 
@@ -56,16 +62,22 @@ Our semi-automated workflow enables us to use current data to generate a 7-day a
 ### Validation
 The best performing random forest and GAM on the validation sets are compared and respresented in the figure below. The GAM model outperforms the random forest across all four metrics and in all periods. The GAM achieves a greater classification accuracy, so it predicts the correct category more often than the random forest does. The GAM has a lower MSE and lower MAE and so when the categorical prediction is incorrect, the GAM predicts categories closer to the true category more often than the random forest. The GAM also has a lower Brier score and so is better skilled in its probabilistic forecasting ability in terms of predicting whether or not a category occurred. Importantly, the GAM significantly outperforms the random forest In Season for each of the MSE, MAE and Brier score.
 
-<img align="center" src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/metrics.png' width="750" >
+<p align="center">
 
+<img align="center" src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/metrics.png' width="750" >
+</p>
 
 ### Test
 
 Our next step was to assess whether the best performing GAM was predicting reasonable and helpful results. It was evaluated on the testing years of 2014, 2018 and 2019, and metrics were averaged over these three years. These results are shown in the table below.
 
+<p align="center">
+  
 |     Period    | Accuracy |  MSE  |  MAE  | Brier |
 |:-------------:|:--------:|:-----:|:-----:|:-----:|
 |   In Season   |   0.395  | 1.303 | 0.818 | 0.674 |
 | Out of Season |   0.636  | 0.462 | 0.393 | 0.463 |
 |     Total     |   0.512  | 0.837 | 0.609 | 0.561 |
+
+</p>
 

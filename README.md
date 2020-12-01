@@ -83,4 +83,4 @@ Our next step was to assess whether the best performing GAM was predicting reaso
 </center>
 
 ## Scripts
-This GitHub repository contains the R code used for modelling and testing, as well as the code used to create our Shiny App. 
+This GitHub repository contains the R code used for modelling and testing, as well as the code used to create our Shiny App. `GAM_models.R` contains our GAM models, as well as the code used to test them. `random_forest_functions.R` contains the necessary functions required for testing the random forest models, including the models themselves. `random_forest.R` uses the functions contained in the previous file to generate results for the random forest models. `workflow.R` contains the functions that are used by our semi-automated workflow. This workflow is contained in `workflow.R`, which uses the functions in the previous file to fetch the necessary data, generate the forecasted class probabilities and output the forecast as a .csv. Finally, `app.R` contains the code used by our Shiny App.

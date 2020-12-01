@@ -11,7 +11,7 @@ Reliable and accessible pollen forecasts can help allergy sufferers, enabling th
 
 In order to predict pollen concentrations one to seven days ahead, we used a recursive forecasting strategy. This means that we built models to predict one day ahead pollen concentrations and then use that prediction for forecasting the next day’s pollen count.  In other words, we have one model that we reuse as we predict further and further out, iteratively replacing observed pollen counts with predicted ones and observed values of weather variables with forecasted ones as seen in thr figure below.
 
-![rec](images/recursiveChainForecasting.png)
+<img src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/workflow.png' width="550">
 
 ### The Need for Categories
 
@@ -42,7 +42,7 @@ Our semi-automated workflow enables us to use current data to generate a 7-day a
 3. the .csv file is then uploaded to GitHub, and 
 4. a Shiny app uses the GitHub file to make the forecast available online. These steps are shown using a flowchart:
 
-<img src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/workflow.png' width="550">
+<img src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/traintestSplitting.png' width="550">
 
 
 

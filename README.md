@@ -15,6 +15,17 @@ In order to predict pollen concentrations one to seven days ahead, we used a rec
 
 ### The Need for Categories
 
+Our models predict pollen counts over the next seven days. However, we believe it is more informative to ultimately predict categories rather than counts, since the end user of our forecast is unlikely to be able to interpret a numeric count prediction. Consequently, instead of reporting the numeric count prediction for each day we converted the daily posterior predictive distributions of pollen counts into probability distributions over five categories, from Very Low to Very High.
+
+
+| Category | Bin |
+| :--- | :---: |
+| Very Low | count < 1|
+| Low | 1 < count < 3 |
+| Moderate | 3 < count < 8|
+| High | 8 < count < 14.8 | 
+| Very High | 14.8 < count |
+
 
 ### Testing and Validation
 

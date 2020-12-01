@@ -43,7 +43,7 @@ Our semi-automated workflow enables us to use current data to generate a 7-day a
 3. the .csv file is then uploaded to GitHub, and 
 4. a Shiny app uses the GitHub file to make the forecast available online. These steps are shown using a flowchart:
 
-<img src = 'Images/workflow.png' width="48">
+<img src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/workflow.png' width="48">
 
 
 

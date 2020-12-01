@@ -15,7 +15,7 @@ In order to predict pollen concentrations one to seven days ahead, we used a rec
 
 ### The Need for Categories
 
-Our models predict pollen counts over the next seven days. However, we believe it is more informative to ultimately predict categories rather than counts, since the end user of our forecast is unlikely to be able to interpret a numeric count prediction. Consequently, instead of reporting the numeric count prediction for each day we converted the daily posterior predictive distributions of pollen counts into probability distributions over five categories, from Very Low to Very High.
+Our models predict pollen counts over the next seven days. However, we believe it is more informative to ultimately predict categories rather than counts, since the end user of our forecast is unlikely to be able to interpret a numeric count prediction. Consequently, instead of reporting the numeric count prediction for each day we converted the daily posterior predictive distributions of pollen counts into probability distributions over five categories, from Very Low to Very High. The categories we used are tabulated below.
 
 
 | Category | Bin |
@@ -29,6 +29,7 @@ Our models predict pollen counts over the next seven days. However, we believe i
 
 ### Testing and Validation
 
+Given temporal dependence between observations in time series data, adaptations of the usual randomised holdout procedures are generally used to test and validate time series models [(Cerqueiraetal, 2020)](https://www.researchgate.net/publication/344667575_Evaluating_time_series_forecasting_models_an_empirical_study_on_performance_estimation_methods). We used a procedure involving a rolling or sliding window for the test, train and validation splits [(Tashman 2000)](https://www.researchgate.net/publication/247087596_Out-of_sample_tests_of_forecasting_accuracy_a_tutorial_and_review). The method we used is illustrated in the diagram below and has been adapted from a diagram by [Cochrane (2018)](https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9).
 
 ![trainTest](images/traintestSplitting.png)
 

@@ -1,5 +1,5 @@
 # Grass Pollen Forecasting
-This is the repository used to make the project titled *Grass Pollen in Cape Town: A Comparison of Generalised Additive Models and Random Forests* by Sky Cope and Chloë Stipinovich. The final papaer can be found under the [documents folder](documents/CPXSKY001_STPCHL002_Honours_Project_2020.pdf).
+This is the repository used to make the project titled *Grass Pollen in Cape Town: A Comparison of Generalised Additive Models and Random Forests* by Sky Cope and Chloë Stipinovich. The final paper can be found under the [documents folder](documents/CPXSKY001_STPCHL002_Honours_Project_2020.pdf).
 
 ## Synopsis
 

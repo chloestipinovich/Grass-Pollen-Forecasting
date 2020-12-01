@@ -48,11 +48,14 @@ Our semi-automated workflow enables us to use current data to generate a 7-day a
 
 ## Results
 
-The best performing random forest and GAM on the validation sets are compared and respresented in thefigure below. 
+### Validation
+The best performing random forest and GAM on the validation sets are compared and respresented in the figure below. The GAM model outperforms the random forest across all four metrics and in all periods. The GAM achieves a greater classification accuracy, so it predicts the correct category more often than the random forest does. The GAM has a lower MSE and lower MAE and so when the categorical prediction is incorrect, the GAM predicts categories closer to the true category more often than the random forest. The GAM also has a lower Brier score and so is better skilled in its probabilistic forecasting ability in terms of predicting whether or not a category occurred. Importantly, the GAM significantly outperforms the random forest In Season for each of the MSE, MAE and Brier score.
 
+![results](images/metrics.pdf)
 
+### Test
 
-
+Our next step was to assess whether the best performing GAM was predicting reasonable and helpful results. It was evaluated on the testing years of 2014, 2018 and 2019, and metrics were averaged over these three years. These results are shown in the table below.
 
 
 ```

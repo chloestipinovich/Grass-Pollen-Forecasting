@@ -5,15 +5,6 @@ This is the repository used to make the project titled *Grass Pollen in Cape Tow
 
 Reliable and accessible pollen forecasts can help allergy sufferers, enabling them to appropriately plan their outdoor activities. In this paper we used generalised additive models (GAMs) and random forests to build seven day ahead grass pollen forecast models, using pollen count data collected at the South African Astronomical Observatory (SAAO) by researchers at the UCT Lung Institute. Variables used to predict pollen levels were primarily meteorological ([powered by Visual Crossing Weather](https://www.visualcrossing.com)), but also included a vegetation index variable (from NASA's MODIS satellite). To make our forecast easier to interpret, our models output probability distributions over five categories of pollen levels, from Very Low to Very High. Further, we created a [Shiny app](https://chloesky.shinyapps.io/pollen/) for potentially displaying the results of our forecast on a website. 
 
-<center>
-
-| Tables   |      Are      |  Cool |
-|----------|:-------------:|------:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
-
-</center>
 
 ## Method
 
@@ -91,3 +82,5 @@ Our next step was to assess whether the best performing GAM was predicting reaso
 
 </center>
 
+## Scripts
+This GitHub repository contains the R code used for modelling and testing, as well as the code used to create our Shiny App. 

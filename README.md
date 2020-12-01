@@ -11,7 +11,9 @@ Reliable and accessible pollen forecasts can help allergy sufferers, enabling th
 
 In order to predict pollen concentrations one to seven days ahead, we used a recursive forecasting strategy. This means that we built models to predict one day ahead pollen concentrations and then use that prediction for forecasting the next day’s pollen count.  In other words, we have one model that we reuse as we predict further and further out, iteratively replacing observed pollen counts with predicted ones and observed values of weather variables with forecasted ones as seen in the figure below.
 
-<img align='center' src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/recursiveChainForecasting.png' width="700" >
+<p align="center">
+  <img src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/recursiveChainForecasting.png' width="700" >
+</p>
 
 
 ### The Need for Categories

@@ -7,11 +7,19 @@ Reliable and accessible pollen forecasts can help allergy sufferers, enabling th
 
 ## Method
 
+### Recursive Forecasting
+
 In order to predict pollen concentrations one to seven days ahead, we used a recursive forecasting strategy. This means that we built models to predict one day ahead pollen concentrations and then use that prediction for forecasting the next day’s pollen count.  In other words, we have one model that we reuse as we predict further and further out, iteratively replacing observed pollen counts with predicted ones and observed values of weather variables with forecasted ones as seen in thr figure below.
 
+![rec](images/Recursive chain forwarding.png)
+
+### The Need for Categories
 
 
+### Testing and Validation
 
+
+![trainTest](images/Train test splitting.png)
 
 ## Shiny App and Semi-Automated Workflow
 

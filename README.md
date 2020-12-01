@@ -3,7 +3,7 @@ This is the repository used to make the project titled *Grass Pollen in Cape Tow
 
 ## Synopsis
 
-Reliable and accessible pollen forecasts can help allergy sufferers, enabling them to appropriately plan their outdoor activities. In this paper we used generalised additive models (GAMs) and random forests to build seven day ahead grass pollen forecast models, using pollen count data collected at the South African Astronomical Observatory (SAAO) by researchers at the UCT Lung Institute. Variables used to predict pollen levels were primarily meteorological, but also included a vegetation index variable. To make our forecast easier to interpret, our models output probability distributions over five categories of pollen levels, from Very Low to Very High. Further, we created a [Shiny app](https://chloesky.shinyapps.io/pollen/) for potentially displaying the results of our forecast on a website. 
+Reliable and accessible pollen forecasts can help allergy sufferers, enabling them to appropriately plan their outdoor activities. In this paper we used generalised additive models (GAMs) and random forests to build seven day ahead grass pollen forecast models, using pollen count data collected at the South African Astronomical Observatory (SAAO) by researchers at the UCT Lung Institute. Variables used to predict pollen levels were primarily meteorological ([powered by Visual Crossing Weather](https://www.visualcrossing.com)), but also included a vegetation index variable (from NASA's MODIS satellite). To make our forecast easier to interpret, our models output probability distributions over five categories of pollen levels, from Very Low to Very High. Further, we created a [Shiny app](https://chloesky.shinyapps.io/pollen/) for potentially displaying the results of our forecast on a website. 
 
 ## Method
 
@@ -29,7 +29,7 @@ Our models predict pollen counts over the next seven days. However, we believe i
 
 ### Testing and Validation
 
-Given temporal dependence between observations in time series data, adaptations of the usual randomised holdout procedures are generally used to test and validate time series models [(Cerqueiraetal, 2020)](https://www.researchgate.net/publication/344667575_Evaluating_time_series_forecasting_models_an_empirical_study_on_performance_estimation_methods). We used a procedure involving a rolling or sliding window for the test, train and validation splits [(Tashman 2000)](https://www.researchgate.net/publication/247087596_Out-of_sample_tests_of_forecasting_accuracy_a_tutorial_and_review). The method we used is illustrated in the diagram below and has been adapted from a diagram by [Cochrane (2018)](https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9).
+Given temporal dependence between observations in time series data, adaptations of the usual randomised holdout procedures are generally used to test and validate time series models [(Cerqueiraetal, 2020)](https://www.researchgate.net/publication/344667575_Evaluating_time_series_forecasting_models_an_empirical_study_on_performance_estimation_methods). We used a procedure involving a rolling or sliding window for the test, train and validation splits [(Tashman, 2000)](https://www.researchgate.net/publication/247087596_Out-of_sample_tests_of_forecasting_accuracy_a_tutorial_and_review). The method we used is illustrated in the diagram below and has been adapted from a diagram by [(Cochrane, 2018)](https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9).
 
 ![trainTest](images/traintestSplitting.png)
 
@@ -47,6 +47,8 @@ Our semi-automated workflow enables us to use current data to generate a 7-day a
 
 
 ## Results
+
+The best performing random forest and GAM on the validation sets are compared and respresented in thefigure below. 
 
 
 

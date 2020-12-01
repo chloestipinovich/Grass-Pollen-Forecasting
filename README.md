@@ -20,7 +20,7 @@ In order to predict pollen concentrations one to seven days ahead, we used a rec
 
 Our models predict pollen counts over the next seven days. However, we believe it is more informative to ultimately predict categories rather than counts, since the end user of our forecast is unlikely to be able to interpret a numeric count prediction. Consequently, instead of reporting the numeric count prediction for each day we converted the daily posterior predictive distributions of pollen counts into probability distributions over five categories, from Very Low to Very High. The categories we used are tabulated below.
 
-<p align="center">
+<center>
 
 | Category | Bin |
 | :--- | :---: |
@@ -29,7 +29,7 @@ Our models predict pollen counts over the next seven days. However, we believe i
 | Moderate | 3 < count < 8|
 | High | 8 < count < 14.8 | 
 | Very High | 14.8 < count |
-</p>
+</center>
 
 ### Testing and Validation
 
@@ -52,7 +52,7 @@ Our semi-automated workflow enables us to use current data to generate a 7-day a
 
 <p align="center">
 
-<img align="center" src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/workflow.png'>
+<img align="center" src = 'https://raw.githubusercontent.com/chloestipinovich/Grass-Pollen-Forecasting/main/images/workflow.png' width="700">
 </p>
 
 
@@ -71,7 +71,7 @@ The best performing random forest and GAM on the validation sets are compared an
 
 Our next step was to assess whether the best performing GAM was predicting reasonable and helpful results. It was evaluated on the testing years of 2014, 2018 and 2019, and metrics were averaged over these three years. These results are shown in the table below.
 
-<p align="center">
+<center>
   
 |     Period    | Accuracy |  MSE  |  MAE  | Brier |
 |:-------------:|:--------:|:-----:|:-----:|:-----:|
@@ -79,5 +79,5 @@ Our next step was to assess whether the best performing GAM was predicting reaso
 | Out of Season |   0.636  | 0.462 | 0.393 | 0.463 |
 |     Total     |   0.512  | 0.837 | 0.609 | 0.561 |
 
-</p>
+</center>
 

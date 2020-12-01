@@ -57,7 +57,13 @@ The best performing random forest and GAM on the validation sets are compared an
 
 Our next step was to assess whether the best performing GAM was predicting reasonable and helpful results. It was evaluated on the testing years of 2014, 2018 and 2019, and metrics were averaged over these three years. These results are shown in the table below.
 
-![trainTest](images/testResults.png)
+|     Period    | Accuracy |  MSE  |  MAE  | Brier |
+|:-------------:|:--------:|:-----:|:-----:|:-----:|
+|   In Season   |   0.395  | 1.303 | 0.818 | 0.674 |
+| Out of Season |   0.636  | 0.462 | 0.393 | 0.463 |
+|     Total     |   0.512  | 0.837 | 0.609 | 0.561 |
+
+
 
 ```
 git status

@@ -1,6 +1,10 @@
 # Title       : Random Forest Models
 # Last edited : November 2020
 # Requires    : random_forest_functions.R
+# Note to user: 
+# A user can change the training and validation years in Step 4.
+# A user can change M, the model type from 1 to 4 in Step 5.
+# A user can change season from values 1 to 3 in Step 8.
 
 # Clear environment
 
@@ -44,7 +48,7 @@ train      = sets$train; validation = sets$validation; test = sets$validation
 
 # Step 5: Select model
 # M can take on values 1 to 4
-M = 4
+M = 1
 
 # Step 6: Set grid search range using setGrid() function
 ctrl    = trainControl(method = 'oob', verboseIter = T)
@@ -74,7 +78,7 @@ rf = rfModel(predictors, rf_grid)
 # 1 = Total 
 # 2 = In Season
 # 3 = Out of Season
-season  = 3
+season  = 1
 (metrics = metricFnct(season,validation, rf, M))
 
 

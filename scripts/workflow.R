@@ -25,7 +25,8 @@ setwd("/Users/chloestipinovich/Documents/2020/Thesis Project/Final Code/Grass-Po
 # Step 3: load GAM model and functions from workflow_functions.R script
 gamModel = readRDS('../data/gamModel.rds')
 source('workflow_functions.R')
-# Set a two week period ----------
+
+# Step 4: require recessary data
 apiData       = APIrequest()
 pollenData    = fetch_pollen()
 vegIndexData  = fetch_vegindex()
@@ -34,17 +35,18 @@ ds            = lubridate::yday(theDates)
 season        = get_season(dsData)
 fyear         = get_year(theDates)
 
+# Step 5: Prepare data for model
 twoWeeks      = cbind(pollenData, ds, apiData, vegIndexData, fyear, season)
 twoWeeks   = twoWeeks %>%  
   dplyr::select(pollen_count, ds, min_temp, max_temp,
                 veg_index, humid, rain, wind_speed, wind_dir, 
                 fyear, season)
 
-# Initiate Storage for Predictions
+# Step 6: Initiate Storage for Predictions
 predictions        = as.data.frame(matrix(NA, nrow = 7, ncol = 5))
 names(predictions) = c("Very_Low", "Low", "Moderate", "High", "Very_High")
 
-# Make 7-day-ahead predictions 
+# Step 7: Make 7-day-ahead predictions 
 # Update twoWeeks data set as you make a new prediction
 for (i in 1:7){
   day_ahead       = lags(twoWeeks, c(i:(i+7) ) )
@@ -55,6 +57,5 @@ for (i in 1:7){
   twoWeeks$pollen_count[i+7] = pred
 }
 
-
-# Write predictions to csv
+# Step 8: Write predictions to csv
 write.csv(predictions, '../data/predictions.csv')

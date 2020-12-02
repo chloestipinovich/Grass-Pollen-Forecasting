@@ -3,8 +3,9 @@
 # Authors     : Sky Cope and Chloë Stipinovich
 
 
-# API weather data --------
-# Fetch past 7 days weather data & 7 days ahead forecasts
+# Function APIrequest
+# Gets API weather data 
+# past 7 days weather data & 7 days ahead forecasts
 APIrequest = function(){
   keys     = c("D93BEE3MG1DDV9HFKD4TDZ2B3","PZSMCLY0TV8WDVR85EKPBLMYQ", "94PTQDZ21VSDMHHT2XVFJK40U", "EBAR2HSG4KACLUX2B3E8XEHXU",
                "YGRJRH8DV62KZ7MAW43SQL900", "EAPTA3QB308L41LWVE35DYEYL", "HA5E9345NW0XENSZCQC5RY4WT")
@@ -26,29 +27,31 @@ APIrequest = function(){
   return(as.data.frame(rbind(historical[2:8,], forecast[2:8,])))
 }
 
-# Pollen data --------
-# Fetch pollen data from past 7 days
+# Functionfetch_pollen
+# Fetches pollen data from github repository from past 7 days
 fetch_pollen = function(){
   pollen = read.csv('https://raw.githubusercontent.com/skycope/grass-pollen/master/Workflow/pollen_counts.csv')
   pollen = data.frame(pollen_count = c(pollen$pollen_count, rep(NA, 7)))
   return(pollen)
 }
 
-# Veg Index data --------
-# Fetch most recent veg index
+# Function fetch_vegindex
+# Fetch most recent Veg Index data 
 fetch_vegindex = function(){
   vegetation = read.csv('https://raw.githubusercontent.com/skycope/grass-pollen/master/Workflow/veg_index_new.csv')
   vegetation = data.frame(veg_index = rep(vegetation$veg_index, 14))
   return(vegetation)
 }
 
-# Get dates --------
+# Function get_dates
+# Get dates for correct 2 week period
 get_dates = function(){
   dates = seq(Sys.Date() - 6, Sys.Date() + 7, by = 1)
   return(dates)
 }
 
-# Get season --------
+# Function get_season
+# Gets the season (In Season or Out of Season) given days since
 get_season = function(ds){
   season = case_when(
     ds > 240 | ds < 30 ~ "In Season",
@@ -57,13 +60,14 @@ get_season = function(ds){
   return(season)
 }
 
-# Get year -----
-
+# Function get_year
+# Gets correct year given dates
 get_year = function(dates){
   return(lubridate::year(dates))
 }
 
-# Function that creates required moving averages for prediction:
+# Function lags
+# Creates required moving averages for prediction:
 # - dat    = two week data set
 # - rng    = 8 day period, 8th day is the prediction day
 # - output = single row of data with all variables required to make prediction
@@ -80,14 +84,16 @@ lags = function(dat, rng){
   return(output[8,])
 }
 
-# Function that performs prediction using ema_2
+# Function GAM_predict
+# performs prediction using ema_2
 # - model = best GAM model with corresponding theta_est
 # - day   = single row of all variables needed for prediction including moving averages
 GAM_predict = function(model, day){
   return(exp(predict(model, day)))
 }
 
-# Function that returns Table of frequencies
+# Function freq
+# returns Table of frequencies
 # - pred = point estimate from day ahead prediction
 # - n    = number of samples from neg binomial
 # - table(dist_cat)/n = table of category probabilities
@@ -103,7 +109,8 @@ freq = function(pred, n){
   return(list(freq_table = table(dist_cat)/n, samples = dist))
 }
 
-# Function that returns Table of frequencies from n_sample samples
+# Function freq2
+# returns Table of frequencies from n_sample samples
 # - dist = row of samples
 # - n    = number of samples 
 # - table(dist_cat)/n = table of category probabilities
@@ -118,7 +125,8 @@ freq2 = function(dist, n){
   return(table(dist_cat)/n)
 }
 
-# Function that returns the correct historic data for a specific sample path
+# Function past 
+# returns the correct historic data for a specific sample path
 # - sample_row = sample path out of 1 to n_samples
 # - num days   = number of days forward the sample path has predicted so far 
 # - past_sample_data = two week period with specific sample path data
